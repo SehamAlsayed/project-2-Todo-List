@@ -1,18 +1,23 @@
 .App {
   text-align: center;
-  border: red solid 5px;
+  border: rgb(247, 239, 239) solid 5px;
+background-color:rgb(164, 137, 167);
 }
 
-.Todo {
-  border: rgb(0, 195, 255) solid 1px;
+
+.Todo{
+  border: rgb(142, 223, 248) solid 1px;
   font-family:  'Lucida Sans';
+  margin: 5px;
+  
 }
+
 .Todo span{
   margin: 0px 10px 0px 10px;
 }
 
 .Add{
-  border: green solid 2px;
+  border: rgb(14, 104, 104) solid 2px;
 }
 .App-logo {
   height: 40vmin;

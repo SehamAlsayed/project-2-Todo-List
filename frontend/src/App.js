@@ -44,19 +44,35 @@ export default function App() {
 });
   }
 
+  const deleteTodo =(id) => {
+     axios
+     .delete(`http://localhost:5000/tasks/${id}`)
+     .then((response) => {
+      // console.log('RESPONSE: ', response);
+       console.log('DATA: ', response.data);
+      // setTasks(response.data) 
+      getData()
+      //change state using spread operator >>> search about this
+     })
+ .catch((err) => {
+   console.log('ERR: ', err); 
+ });
+   }
+ 
 
   const mapOverTasks=tasks.map((taskObj,i) => ( 
-  <Todo key={i} task={taskObj} />
+  <Todo key={i} task={taskObj} deleteTodo={deleteTodo}/>
   ));
 
   return (
     <div className='App'>
+     
   <p>app</p>
   <Add createFunc={postNewTodo}/>
   <button onClick={getData}>GET TASKS</button>
 
   {mapOverTasks}
-  
+
     </div>
   )  
 }
