@@ -74,20 +74,67 @@ const toggleTodo = (id, newStatus) => {
 });
   }
 
+  const deleteTasks =() => {
+    axios
+    .delete(`http://localhost:5000/tasks`)
+    .then((response) => {
+     // console.log('RESPONSE: ', response);
+      console.log('DATA: ', response.data);
+     // setTasks(response.data) 
+     getData()
+     //change state using spread operator >>> search about this
+    })
+.catch((err) => {
+  console.log('ERR: ', err); 
+});
+  }
+
+  const FilterData=(status) => {
+    axios
+    .get(`http://localhost:5000/filter?isCompleted=${status}`)
+    .then((response) => {
+      console.log('RESPONSE: ', response);
+      console.log('DATA: ', response.data);
+      setTasks(response.data)
+    })
+.catch((err) => {
+  console.log('ERR: ', err);
+});
+  }
 
   const mapOverTasks=tasks.map((taskObj,i) => ( 
-  <Todo key={i} task={taskObj} deleteTodo={deleteTodo} toggleTodo={toggleTodo}/>
+  <Todo
+   key={taskObj._id} 
+   task={taskObj} 
+   deleteTodo={deleteTodo} 
+   toggleTodo={toggleTodo}/>
   ));
 
   return (
+    
     <div className='App'>
-     
-  <p>app</p>
+     <form>
+      <br/>
   <Add createFunc={postNewTodo}/>
-  <button onClick={getData}>GET TASKS</button>
-
+ 
+ 
   {mapOverTasks}
-
+  <br/>
+  <br/>
+  <button onClick={getData}>GET TASKS</button>
+      <button onClick={deleteTasks}>DELETE COMPLETED TASKS</button>
+      <button
+       onClick={()=>{
+        FilterData(true)
+        }}
+        >GET DONE</button>
+        
+      <button
+       onClick={()=>{
+        FilterData(false)
+        }}
+        >GET PENDING</button>
+        </form>
     </div>
   )  
 }

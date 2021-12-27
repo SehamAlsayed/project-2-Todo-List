@@ -1,13 +1,15 @@
 .App {
   text-align: center;
-  border: rgb(247, 239, 239) solid 5px;
+  border: rgb(254, 255, 220) solid 5px;
 background-color:rgb(164, 137, 167);
 }
 
-
+form{
+  block-size: 1000px;
+}
 .Todo{
-  border: rgb(142, 223, 248) solid 1px;
-  font-family:  'Lucida Sans';
+  border: rgb(254, 255, 220) solid ;
+  font-family:cursive;
   margin: 5px;
   
 }
@@ -17,7 +19,19 @@ background-color:rgb(164, 137, 167);
 }
 
 .Add{
-  border: rgb(14, 104, 104) solid 2px;
+  border: rgb(254, 255, 220) solid 2px;
+  text-align: center;
+}
+div{
+  background-color: rgb(254, 255, 220);
+  color: #6b4074;
+}
+
+button{
+  background-color: rgb(240, 221, 221);
+ color:#6b4074 ;
+ font-family:Optima;
+ font-size: 15px;
 }
 .App-logo {
   height: 40vmin;
