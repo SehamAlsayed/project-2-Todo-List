@@ -7,7 +7,7 @@ background-color:rgb(164, 137, 167);
 form{
   block-size: 1000px;
 }
-.Todo{
+.Todo .Register .Login{
   border: rgb(254, 255, 220) solid ;
   font-family:cursive;
   margin: 5px;
