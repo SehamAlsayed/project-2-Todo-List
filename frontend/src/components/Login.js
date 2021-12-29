@@ -1,23 +1,19 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 
-export default function Register() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [username, setUsername] = useState('');
+export default function Login() {
+    const [email, setEmail] = useState('m.jouza3@gmail.com');
+    const [password, setPassword] = useState('1234');
 
-    const registerFunc = (e) => {
+    const loginFunc = (e) => {
 e.preventDefault();
-console.log('reg');
-const newUser={
-    //ES6
+//console.log('log');
+const userInfo = {
 email,
-//"email": "email value in the state"
 password,
-username,
 };
 axios
-.post(`http://localhost:5000/users/register`,newUser)
+.post(`http://localhost:5000/users/login`,userInfo)
 .then((response) => {
     console.log('DATA: ', response.data);
 })
@@ -26,7 +22,7 @@ axios
 });
     };
   return (
-    <div className='Register'>
+    <div className='Login'>
         <form action=''>
             <label htmlFor='email'>Email:</label>
         <input type="email" placeholder='Write email here  ...' 
@@ -42,14 +38,7 @@ axios
         }}
         value={password}/>
         <br/>
-        <label htmlFor='username'>username:</label>
-        <input type="text"  placeholder='Write username here  ...'
-        nChange={(e) => {
-            setUsername(e.target.value);
-        }}
-        value={username}/>
-        <br/>
-        <input type="submit" value="Register" onClick={registerFunc}/>
+        <input type="submit" value="Login" onClick={loginFunc}/>
         </form>
     </div>
   )

@@ -5,6 +5,7 @@ import axios from 'axios';
 import Todo from './components/Todo';
 import Add from './components/Add';
 import Register from './components/Register';
+import Login from './components/Login';
 
 
 
@@ -136,6 +137,7 @@ const toggleTodo = (id, newStatus) => {
         }}
         >GET PENDING</button>
         <Register />
+        <Login />
         </form>
     </div>
   )  
