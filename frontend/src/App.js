@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import { Routes, Route, Link } from "react-router-dom";
 import Todo from './components/Todo';
 import Add from './components/Add';
 import Register from './components/Register';
@@ -115,6 +116,17 @@ const toggleTodo = (id, newStatus) => {
   return (
     
     <div className='App'>
+      <p>To Do List</p>
+
+<nav>
+  <Link to='/home'>Home</Link> {' | '}
+  <Link to='/login'>Login</Link> {' | '}
+  <Link to='/register'>Register</Link> {' | '}
+</nav>
+
+
+      <Routes>
+        <Route path="/home" element={  <div className="Home">
      <form>
       <br/>
   <Add createFunc={postNewTodo}/>
@@ -135,10 +147,16 @@ const toggleTodo = (id, newStatus) => {
        onClick={()=>{
         FilterData(false)
         }}
-        >GET PENDING</button>
-        <Register />
-        <Login />
+        >GET PENDING
+        </button>
+
+       
         </form>
+        </div>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+
     </div>
   )  
 }
