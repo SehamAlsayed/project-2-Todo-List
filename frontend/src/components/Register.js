@@ -29,6 +29,7 @@ axios
   return (
     <div className='Register'>
         <form action=''>
+        <br/>
             <label htmlFor='email'>Email:</label>
         <input type="email" placeholder='Write email here  ...' 
         onChange={(e) => {
@@ -50,8 +51,11 @@ axios
         }}
         value={username}/>
         <br/>
-        <input type="submit" value="Register" onClick={registerFunc}/>
+        <br/>
+        <input type="submit" value="Register" onClick={registerFunc} className="btn btn-outline-warning"/>
+        <br/>
         <Link to='/Login'>Have An Acount?</Link>
+        <br/>
         </form>
     </div>
   )

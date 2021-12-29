@@ -106,6 +106,10 @@ const toggleTodo = (id, newStatus) => {
 });
   }
 
+  const logoutFunc = () => {
+    setIsLoggedIn(false);
+    setUsername("");
+  };
   const mapOverTasks=tasks.map((taskObj,i) => ( 
   <Todo
    key={taskObj._id} 
@@ -121,12 +125,29 @@ const toggleTodo = (id, newStatus) => {
       <p>Name:{username}</p>
 
 <nav>
-  <Link to='/home'>Home</Link> {' | '}
-  <Link to='/login'>Login</Link> {' | '}
-  <Link to='/register'>Register</Link> {' | '}
+  <Link to='/home' className="btn btn-outline-light">Home</Link> {' | '}
+  <Link to='/login' className="btn btn-outline-light">Login</Link> {' | '}
+  <Link to='/register' className="btn btn-outline-light">Register</Link> {' | '}
 </nav>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist" >
+  <Link to='/home' className="btn btn-outline-light">Home</Link>
+  <Link to='/login' className="btn btn-outline-light">Login</Link> 
+  <Link to='/register' className="btn btn-outline-light">Register</Link> 
+    
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+</div>
 
 
+
+<br />
+<button onClick={logoutFunc} className="btn btn-outline-warning">Logout</button>
+<br />
       <Routes>
         <Route path="/home" element={  <div className="Home">
      <form>

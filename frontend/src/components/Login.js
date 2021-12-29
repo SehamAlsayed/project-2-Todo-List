@@ -25,14 +25,16 @@ axios
 });
     };
   return (
-    <div className='Login'>
+    <div className='Login, m-3' >
         <form action=''>
-            <label htmlFor='email'>Email:</label>
+        <br/>
+            <label htmlFor='email'>Email: </label>
         <input type="email" 
         onChange={(e) => {
             setEmail(e.target.value);
         }}
         value={email}/>
+        <br/>
         <br/>
         <label htmlFor='password'>Password:</label>
         <input type="password" 
@@ -41,8 +43,12 @@ axios
         }}
         value={password}/>
         <br/>
-        <input type="submit" value="Login" onClick={loginFunc}/>
+        <br/>
+        <input type="submit" value="Login" onClick={loginFunc} className="btn btn-outline-warning"/>
         </form>
+        <br/>
+        <br/>
+        <br/>
         <Link to='/Register'>Don't Have An Acount?</Link>
     </div>
 
