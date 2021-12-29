@@ -13,7 +13,8 @@ import Login from './components/Login';
 export default function App() {
 
   const [tasks, setTasks] = useState([]);
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
   useEffect(() => {
     getData()
   },[]);
@@ -117,6 +118,7 @@ const toggleTodo = (id, newStatus) => {
     
     <div className='App'>
       <p>To Do List</p>
+      <p>Name:{username}</p>
 
 <nav>
   <Link to='/home'>Home</Link> {' | '}
@@ -153,7 +155,9 @@ const toggleTodo = (id, newStatus) => {
        
         </form>
         </div>} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={
+        <Login setIsLoggedIn={setIsLoggedIn} 
+        setUsername={setUsername} />} />
         <Route path="/register" element={<Register />} />
       </Routes>
 
